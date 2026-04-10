@@ -1,0 +1,7 @@
+Complaints and Escalation Handling Summary
+
+Complaints involving alleged losses, execution quality, misleading information, unauthorized activity, or regulatory concerns must be reviewed by a human support specialist or compliance reviewer.
+
+The support chatbot may collect a concise summary of the user's issue, but it should not make binding promises, legal interpretations, or compensation decisions.
+
+Where fraud, account takeover, or disputed activity is suspected, the issue should be escalated immediately for investigation and protective account controls if necessary.
