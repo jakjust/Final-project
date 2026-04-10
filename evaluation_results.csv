@@ -1,0 +1,7 @@
+query,expected_route,actual_route,expected_keyword,pass
+What are the fees for US stock trades?,rag_policy_qa,rag_policy_qa,USD 2.50,True
+How do I update my KYC documents?,rag_policy_qa,rag_policy_qa,re-upload,True
+Why was my order rejected? Order ID ORD001,order_status_tool,order_status_tool,Insufficient buying power,True
+Check account verification for customer CUST1001,account_verification_tool,account_verification_tool,blurred,True
+I lost money because your system failed and I want to make a complaint.,human_escalation,human_escalation,Escalation recommended,True
+Why can a withdrawal be delayed?,rag_policy_qa,rag_policy_qa,delayed,True
