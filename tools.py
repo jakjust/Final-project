@@ -1,64 +1,66 @@
-from __future__ import annotations
+import re
+from typing import Optional
 
-from typing import Dict, Optional
 
-ORDERS: Dict[str, Dict[str, str]] = {
-    "ORD001": {
-        "status": "Rejected",
-        "reason": "Insufficient buying power in the cash account.",
-        "next_step": "Deposit additional funds or reduce order size before resubmitting.",
-    },
-    "ORD002": {
-        "status": "Pending",
-        "reason": "Order queued outside market hours.",
-        "next_step": "The order will be sent when the market opens unless the client cancels it first.",
-    },
-    "ORD003": {
-        "status": "Executed",
-        "reason": "Trade completed successfully at market price.",
-        "next_step": "Review the contract note and portfolio position for execution details.",
-    },
+MOCK_ORDERS = {
+    "ORD001": "Rejected due to insufficient buying power.",
+    "ORD002": "Pending until market open.",
+    "ORD003": "Executed successfully.",
+    "ORD004": "Rejected due to invalid order quantity."
 }
 
-ACCOUNTS: Dict[str, Dict[str, str]] = {
-    "CUST1001": {
-        "verification": "Pending Review",
-        "details": "Proof-of-address document is blurred and needs to be re-uploaded.",
-        "next_step": "Upload a clear document showing your full name, address, and issue date.",
-    },
-    "CUST1002": {
-        "verification": "Verified",
-        "details": "All onboarding checks were completed successfully.",
-        "next_step": "No further action is required.",
-    },
-    "CUST1003": {
-        "verification": "Rejected",
-        "details": "Name mismatch between identity document and account registration.",
-        "next_step": "Update the profile details or submit a corrected identity document.",
-    },
+MOCK_CUSTOMERS = {
+    "CUST1001": "Verification pending additional identity documents.",
+    "CUST1002": "Fully verified.",
+    "CUST1003": "Verification rejected due to mismatched address information."
 }
 
 
-def lookup_order_status(order_id: str) -> Optional[str]:
-    record = ORDERS.get(order_id.upper())
-    if not record:
-        return "I could not find that order ID in the demo system. Please verify the ID or escalate to human support."
-
-    return (
-        f"Order {order_id.upper()} status: {record['status']}. "
-        f"Reason: {record['reason']} "
-        f"Recommended next step: {record['next_step']}"
-    )
+def extract_order_id(text: str) -> Optional[str]:
+    match = re.search(r"\bORD\d+\b", text.upper())
+    return match.group(0) if match else None
 
 
+def extract_customer_id(text: str) -> Optional[str]:
+    match = re.search(r"\bCUST\d+\b", text.upper())
+    return match.group(0) if match else None
 
-def lookup_account_verification(customer_id: str) -> Optional[str]:
-    record = ACCOUNTS.get(customer_id.upper())
-    if not record:
-        return "I could not find that customer ID in the demo system. Please verify the ID or ask a human agent to investigate."
 
-    return (
-        f"Customer {customer_id.upper()} verification status: {record['verification']}. "
-        f"Details: {record['details']} "
-        f"Recommended next step: {record['next_step']}"
-    )
+def format_order_response(order_id: str, status: str) -> dict:
+    return {
+        "route": "Tool Response",
+        "answer": f"Your order {order_id} status is: {status}",
+        "reason": "The system detected an order ID and used the mock order-status lookup tool.",
+        "next_step": (
+            "If the issue is unresolved, review your account balance, trading permissions, "
+            "or contact support with the same order ID."
+        ),
+        "source": "Mock order lookup tool"
+    }
+
+
+def format_customer_response(customer_id: str, status: str) -> dict:
+    return {
+        "route": "Tool Response",
+        "answer": f"Customer {customer_id} verification status: {status}",
+        "reason": "The system detected a customer ID and used the mock account-verification lookup tool.",
+        "next_step": (
+            "If additional documents are required, resubmit them through the verification portal "
+            "and wait for the next compliance review."
+        ),
+        "source": "Mock account verification tool"
+    }
+
+
+def handle_structured_query(user_text: str) -> Optional[dict]:
+    order_id = extract_order_id(user_text)
+    if order_id:
+        status = MOCK_ORDERS.get(order_id, "No matching order record was found.")
+        return format_order_response(order_id, status)
+
+    customer_id = extract_customer_id(user_text)
+    if customer_id:
+        status = MOCK_CUSTOMERS.get(customer_id, "No matching customer record was found.")
+        return format_customer_response(customer_id, status)
+
+    return None
