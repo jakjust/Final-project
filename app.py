@@ -26,13 +26,13 @@ def render_response(response: dict):
     else:
         st.success(f"Route: {route}")
 
-    st.markdown(f"### Answer")
+    st.markdown("### Answer")
     st.write(response.get("answer", "No answer available."))
 
-    st.markdown(f"**Why this route was chosen:**")
+    st.markdown("**Why this route was chosen:**")
     st.write(response.get("reason", "No reason provided."))
 
-    st.markdown(f"**Recommended next step:**")
+    st.markdown("**Recommended next step:**")
     st.write(response.get("next_step", "No next step available."))
 
     st.markdown(f"**Source:** `{response.get('source', 'Unknown')}`")
@@ -114,6 +114,3 @@ def main():
 
 if __name__ == "__main__":
     main()
-                    }
-
-    st.session_state.messages.append(assistant_message)
