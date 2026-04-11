@@ -1,9 +1,0 @@
-Deposits and Withdrawals Support Notes
-
-Withdrawals are generally processed to a bank account previously verified in the client profile. Requests submitted before the daily cutoff are typically reviewed on the same business day. Actual receipt time depends on the receiving bank and payment rail.
-
-A withdrawal may be delayed if there are unresolved compliance checks, recent deposit reversals, incomplete bank verification, or suspected account compromise.
-
-The platform does not charge a standard withdrawal fee for local bank transfers, but intermediary bank fees may still apply for certain cross-border payments.
-
-If a client reports unauthorized withdrawals or suspected account takeover, the matter should be escalated immediately to the fraud or risk operations team for review.
