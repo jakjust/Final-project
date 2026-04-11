@@ -1,9 +1,0 @@
-Order Rejections and Trade Issue Guide
-
-Orders may be rejected for several reasons including insufficient buying power, market closure, invalid order parameters, restricted securities, or failed compliance checks.
-
-If the order is placed outside market hours, the system may keep it pending until the market opens. For market orders, prices can change quickly and execution is not guaranteed at the last displayed quote.
-
-For rejected orders, the app usually displays a rejection reason in the activity log. Clients should verify available cash, order size, symbol eligibility, and whether any account restrictions are active.
-
-In some cases, the platform may block trading in a security due to corporate actions, unusual market conditions, exchange halts, or regulatory requirements.
