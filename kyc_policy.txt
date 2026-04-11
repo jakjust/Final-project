@@ -1,9 +1,0 @@
-Account Verification and KYC Policy Summary
-
-To complete account verification, clients must submit a government-issued identity document and a proof of residential address. Acceptable proof-of-address documents include utility bills, bank statements, or government letters dated within the last three months.
-
-Documents must be clear, valid, and fully visible. The full name, address, and issue date must be readable. Screenshots, cropped images, and expired identity documents may be rejected during review.
-
-If verification is rejected, clients can re-upload corrected documents in the profile section of the mobile app or web platform. Most reviews are completed within one to two business days, but enhanced due diligence may take longer.
-
-The platform may request additional documentation where required by anti-money laundering controls, sanctions screening, or internal risk review procedures.
