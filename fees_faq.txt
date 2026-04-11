@@ -1,9 +1,0 @@
-Digital Investment Platform Fees FAQ
-
-US stock trades are charged at USD 2.50 per executed order for standard retail accounts. Fractional share orders are charged at the same rate as whole-share orders when executed. The fee is displayed on the order preview screen before the client confirms the trade.
-
-Currency conversion charges apply when clients trade products settled in a currency different from the base account currency. The current FX conversion spread is 0.35 percent above the reference rate.
-
-There is no custody fee for standard accounts holding listed equities. However, corporate action handling for voluntary events may include a service fee depending on the event type and external custodian charges.
-
-Clients should always review the latest fee schedule before submitting an order because external market charges, taxes, or regulatory levies may apply in some markets.
